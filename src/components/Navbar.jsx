@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isAcademicsOpen, setIsAcademicsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleAcademics = () => {
     setIsAcademicsOpen(!isAcademicsOpen);
@@ -18,30 +20,47 @@ const Navbar = () => {
         <div className="flex justify-between h-24">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center">
+            <Link to="/" className="flex-shrink-0 flex items-center">
               <h1 className="text-xl leading-tight text-gray-900">
                 <div>St. Ignatius</div>
                 <div>College School</div>
               </h1>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center">
             <div className="ml-6 flex space-x-8">
-              <a href="#" className="text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors">
+              <Link
+                to="/about"
+                className={`text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors ${
+                  location.pathname === '/about' ? 'border-b-2 border-blue-600' : ''
+                }`}
+              >
                 About
-              </a>
-              <a href="#" className="text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors">
+              </Link>
+              <Link
+                to="/services"
+                className={`text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors ${
+                  location.pathname === '/services' ? 'border-b-2 border-blue-600' : ''
+                }`}
+              >
                 Services
-              </a>
-              <a href="#" className="text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors">
+              </Link>
+              <Link
+                to="/admissions"
+                className={`text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors ${
+                  location.pathname === '/admissions' ? 'border-b-2 border-blue-600' : ''
+                }`}
+              >
                 Admissions
-              </a>
+              </Link>
               <div className="relative">
                 <button
                   type="button"
-                  className="text-gray-900 group inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors"
+                  className={`text-gray-900 group inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors ${
+                    location.pathname === '/academics' ? 'border-b-2 border-blue-600' : ''
+                  }`}
                   onClick={toggleAcademics}
                 >
                   Academics
@@ -62,37 +81,47 @@ const Navbar = () => {
                 {isAcademicsOpen && (
                   <div className="absolute right-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                     <div className="py-1" role="menu" aria-orientation="vertical">
-                      <a
-                        href="#"
+                      <Link
+                        to="/academics"
                         className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100"
                         role="menuitem"
                       >
                         Departments
-                      </a>
-                      <a
-                        href="#"
+                      </Link>
+                      <Link
+                        to="/academics"
                         className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100"
                         role="menuitem"
                       >
                         Advanced Placement Program
-                      </a>
-                      <a
-                        href="#"
+                      </Link>
+                      <Link
+                        to="/academics"
                         className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100"
                         role="menuitem"
                       >
                         Safe Schools Program
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 )}
               </div>
-              <a href="#" className="text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors">
+              <Link
+                to="/news"
+                className={`text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors ${
+                  location.pathname === '/news' ? 'border-b-2 border-blue-600' : ''
+                }`}
+              >
                 News & Events
-              </a>
-              <a href="#" className="text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors">
+              </Link>
+              <Link
+                to="/contact"
+                className={`text-gray-900 inline-flex items-center px-1 pt-1 text-base hover:text-gray-600 transition-colors ${
+                  location.pathname === '/contact' ? 'border-b-2 border-blue-600' : ''
+                }`}
+              >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -118,18 +147,27 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu, show/hide based on state */}
+      {/* Mobile menu */}
       <div className={`lg:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="pt-2 pb-3 space-y-1 bg-white shadow-lg">
-          <a href="#" className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100">
+          <Link
+            to="/about"
+            className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100"
+          >
             About
-          </a>
-          <a href="#" className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100">
+          </Link>
+          <Link
+            to="/services"
+            className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100"
+          >
             Services
-          </a>
-          <a href="#" className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100">
+          </Link>
+          <Link
+            to="/admissions"
+            className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100"
+          >
             Admissions
-          </a>
+          </Link>
           
           {/* Mobile academics dropdown */}
           <div>
@@ -154,25 +192,40 @@ const Navbar = () => {
             </button>
             {isAcademicsOpen && (
               <div className="pl-6 bg-gray-50">
-                <a href="#" className="block py-2 px-4 text-base text-gray-700 hover:bg-gray-100">
+                <Link
+                  to="/academics"
+                  className="block py-2 px-4 text-base text-gray-700 hover:bg-gray-100"
+                >
                   Departments
-                </a>
-                <a href="#" className="block py-2 px-4 text-base text-gray-700 hover:bg-gray-100">
+                </Link>
+                <Link
+                  to="/academics"
+                  className="block py-2 px-4 text-base text-gray-700 hover:bg-gray-100"
+                >
                   Advanced Placement Program
-                </a>
-                <a href="#" className="block py-2 px-4 text-base text-gray-700 hover:bg-gray-100">
+                </Link>
+                <Link
+                  to="/academics"
+                  className="block py-2 px-4 text-base text-gray-700 hover:bg-gray-100"
+                >
                   Safe Schools Program
-                </a>
+                </Link>
               </div>
             )}
           </div>
           
-          <a href="#" className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100">
+          <Link
+            to="/news"
+            className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100"
+          >
             News & Events
-          </a>
-          <a href="#" className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100">
+          </Link>
+          <Link
+            to="/contact"
+            className="block py-2 px-4 text-base font-medium text-gray-700 hover:bg-gray-100"
+          >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

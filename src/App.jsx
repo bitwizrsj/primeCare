@@ -1,32 +1,30 @@
 import React from 'react';
-import { 
-  Activity,
-  Facebook, 
-  Instagram, 
-  Linkedin, 
-  Mail,
-  Twitter
-} from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HeroSection from './pages/home/Hero';
-import Hero2 from './pages/home/Hero2';
-import ResourcesSection from './pages/home/ResourcesSection';
-import StudentServicesSection from './pages/home/StudentServicesSection';
-import InfiniteImageScroll from './pages/home/InfiniteImageScroll';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Services from './pages/services/Services';
+import Academics from './pages/academics/Academics';
+import News from './pages/news/News';
+import Contact from './pages/contact/Contact';
+import Admissions from './pages/admissions/Admissions';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <Navbar />
-      <HeroSection />
-      <Hero2 />
-    <ResourcesSection />
-    <StudentServicesSection />
-    <InfiniteImageScroll />
-      
-
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/academics" element={<Academics />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/admissions" element={<Admissions />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
