@@ -6,8 +6,8 @@ import About from './pages/about/About';
 import Services from './pages/services/Services';
 import Academics from './pages/academics/Academics';
 import News from './pages/news/News';
-// import Contact from './pages/contact/Contact';
-// import Admissions from './pages/admissions/Admissions';
+import Contact from './pages/contact/Contact';
+import Admissions from './pages/admissions/Admissions';
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/academics" element={<Academics />} />
           <Route path="/news" element={<News />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
-          {/* <Route path="/admissions" element={<Admissions />} /> */}
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/admissions" element={<Admissions />} />
         </Routes>
       </div>
     </Router>

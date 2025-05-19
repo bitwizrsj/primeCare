@@ -1,77 +1,71 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { BookOpen, Users, GraduationCap, Palette } from 'lucide-react';
 
 const ServicesSection = () => {
-    const services = [
-        {
-          id: 1,
-          image: 'https://image.freepik.com/free-photo/dental-care-treatment-dentist-chair_1150-15674.jpg', // Dental Care Image
-          title: 'Dental Care',
-          description: 'Advanced dental treatments and care',
-        },
-        {
-          id: 2,
-          image: 'https://image.freepik.com/free-photo/laboratory-with-microscope-and-research-sample_1150-15155.jpg', // Laboratory Image
-          title: 'Laboratory',
-          description: 'State-of-the-art medical testing',
-        },
-        {
-          id: 3,
-          image: 'https://image.freepik.com/free-photo/advanced-medical-imaging-modern-clinic_1150-16647.jpg', // Diagnostics Image
-          title: 'Diagnostics',
-          description: 'Advanced medical imaging',
-        },
-        {
-          id: 4,
-          image: 'https://image.freepik.com/free-photo/scientists-researching-medical-lab_1150-27404.jpg', // Research Image
-          title: 'Research',
-          description: 'Cutting-edge medical research',
-        }
-      ];
-      
-      
+  const services = [
+    {
+      id: 1,
+      image: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg',
+      title: 'Academic Programs',
+      description: 'Comprehensive curriculum for all grades',
+      icon: <BookOpen className="w-6 h-6" />
+    },
+    {
+      id: 2,
+      image: 'https://images.pexels.com/photos/8199562/pexels-photo-8199562.jpeg',
+      title: 'Student Life',
+      description: 'Rich extracurricular activities',
+      icon: <Users className="w-6 h-6" />
+    },
+    {
+      id: 3,
+      image: 'https://images.pexels.com/photos/8471799/pexels-photo-8471799.jpeg',
+      title: 'College Prep',
+      description: 'Advanced placement and counseling',
+      icon: <GraduationCap className="w-6 h-6" />
+    },
+    {
+      id: 4,
+      image: 'https://images.pexels.com/photos/8471834/pexels-photo-8471834.jpeg',
+      title: 'Arts & Culture',
+      description: 'Visual and performing arts programs',
+      icon: <Palette className="w-6 h-6" />
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
         <div className="flex justify-between items-start mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold max-w-xl">
-            Feel free to explore our services & join with us
+          <h1 className="text-4xl md:text-5xl font-serif">
+            Discover Our Programs<br />and Activities
           </h1>
           <p className="text-sm text-gray-600 max-w-xs text-right">
-            FEEL TO EXPLORE OUR SERVICES AND JOIN WITH OUR COMMUNITY AND ENJOY YOUR LIFE BETTER EXPERIENCE.
+            EXPLORE OUR COMPREHENSIVE EDUCATIONAL PROGRAMS AND ENRICHING STUDENT ACTIVITIES
           </p>
         </div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div key={service.id} className="space-y-4">
-              {/* Service Card */}
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-blue-50">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gray-100">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
-                {index === 0 && (
-                  <button className="absolute bottom-4 left-4 bg-white px-4 py-2 rounded-full flex items-center gap-2 text-sm">
-                    Learn More
-                    <ArrowUpRight className="w-4 h-4" />
-                  </button>
-                )}
+                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <div className="bg-white p-3 rounded-full">
+                    {service.icon}
+                  </div>
+                </div>
               </div>
 
-              {/* Service Info Card */}
-              <div className="bg-blue-50 p-6 rounded-3xl h-48">
+              <div className="bg-white p-6 rounded-3xl h-48">
                 <div className="flex justify-between items-start mb-4">
-                  <span className="px-4 py-2 bg-white rounded-full text-sm">
-                    SERVICES
+                  <span className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium">
+                    PROGRAM
                   </span>
-                  <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                    <ArrowUpRight className="w-4 h-4" />
-                  </button>
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
