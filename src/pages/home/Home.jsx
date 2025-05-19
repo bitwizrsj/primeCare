@@ -10,7 +10,7 @@ export default function Home() {
     <div>
         <Hero />
         {/* <MedicalInsight /> */}
-        <MedicalTeamSection />
+        {/* <MedicalTeamSection /> */}
         <ServicesSection />
         <CareerCTASection />
     </div>
